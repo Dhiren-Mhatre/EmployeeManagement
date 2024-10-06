@@ -125,7 +125,7 @@ const Team = () => {
   const handleSearch = async () => {
     try {
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-uubq.onrender.com/api/search_employee/${searchQuery}`
+        `http://localhost:5000/api/search_employee/${searchQuery}`
       );
       setSearchResults(response.data);
     } catch (error) {
@@ -147,9 +147,7 @@ const Team = () => {
 
     // Example using axios to send a delete request to the backend
     axiosInstance
-      .delete(
-        `https://employeemanagement-backend-uubq.onrender.com/api/delete_employee/${id}`
-      )
+      .delete(`http://localhost:5000/api/delete_employee/${id}`)
       .then((response) => {
         console.log("Employee deleted successfully");
 
@@ -323,14 +321,11 @@ const Team = () => {
     console.log(values);
     // console.log(profileCv, profilePic)
     try {
-      await axiosInstance.post(
-        "https://employeemanagement-backend-uubq.onrender.com/api/add_employee",
-        {
-          ...values,
-          profilepic: pic,
-          profilecv: cv,
-        }
-      );
+      await axiosInstance.post("http://localhost:5000/api/add_employee", {
+        ...values,
+        profilepic: pic,
+        profilecv: cv,
+      });
 
       setValues({
         // Reset all form fields to empty strings
@@ -388,26 +383,23 @@ const Team = () => {
 
   const handleTest = async () => {
     try {
-      await axiosInstance.post(
-        "https://employeemanagement-backend-uubq.onrender.com/api/add_employee",
-        {
-          firstName: fname,
-          lastName: lname,
-          Email: email,
-          contact: contact,
-          address1: address1,
-          address2: address2,
-          gender: gender,
-          password: password,
-          designation: designation,
-          department: department,
-          education: education,
-          address: address,
-          date: date,
-          // joiningDate: joiningDate,
-          // leaving: leaving,
-        }
-      );
+      await axiosInstance.post("http://localhost:5000/api/add_employee", {
+        firstName: fname,
+        lastName: lname,
+        Email: email,
+        contact: contact,
+        address1: address1,
+        address2: address2,
+        gender: gender,
+        password: password,
+        designation: designation,
+        department: department,
+        education: education,
+        address: address,
+        date: date,
+        // joiningDate: joiningDate,
+        // leaving: leaving,
+      });
 
       console.log("API request successful");
       console.log("Data sent:", fname);

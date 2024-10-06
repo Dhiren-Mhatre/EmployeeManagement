@@ -53,7 +53,7 @@ const LeaveTypes = () => {
     try {
       console.log("Leave ID:", id); // Log the leave ID
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-uubq.onrender.com/api/get_leave/${id}`
+        `http://localhost:5000/api/get_leave/${id}`
       );
       const existingLeave = response.data;
       console.log("Fetched leave Data:", existingLeave);
@@ -87,11 +87,11 @@ const LeaveTypes = () => {
     try {
       const response = editedLeave._id
         ? await axiosInstance.put(
-            `https://employeemanagement-backend-uubq.onrender.com/api/edit_leave/${editedLeave._id}`,
+            `http://localhost:5000/api/edit_leave/${editedLeave._id}`,
             editedLeave
           )
         : await axiosInstance.post(
-            "https://employeemanagement-backend-uubq.onrender.com/api/add_leave",
+            "http://localhost:5000/api/add_leave",
             editedLeave
           );
 
@@ -106,9 +106,7 @@ const LeaveTypes = () => {
   };
   const fetchLeaveData = () => {
     axiosInstance
-      .get(
-        "https://employeemanagement-backend-uubq.onrender.com/api/get_leaves"
-      )
+      .get("http://localhost:5000/api/get_leaves")
       .then((response) => {
         const modifiedData = response.data.map((row) => ({
           ...row,
@@ -127,7 +125,7 @@ const LeaveTypes = () => {
 
       // Send the request to the backend to update the status
       const response = await axiosInstance.put(
-        `https://employeemanagement-backend-uubq.onrender.com/api/activate_deactivate_leave/${id}`,
+        `http://localhost:5000/api/activate_deactivate_leave/${id}`,
         { status: newStatus }
       );
 
@@ -207,9 +205,7 @@ const LeaveTypes = () => {
     console.log(`Deleting leave with ID: ${id}`);
 
     axiosInstance
-      .delete(
-        `https://employeemanagement-backend-uubq.onrender.com/api/delete_leave/${id}`
-      )
+      .delete(`http://localhost:5000/api/delete_leave/${id}`)
       .then((response) => {
         console.log("Response from backend:", response.data);
         console.log("Leave deleted successfully");

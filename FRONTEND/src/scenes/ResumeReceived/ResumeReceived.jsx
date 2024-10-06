@@ -61,7 +61,7 @@ const ResumeReceived = () => {
 
     try {
       const response = await axiosInstance.post(
-        "https://employeemanagement-backend-uubq.onrender.com/api/send-email",
+        "http://localhost:5000/api/send-email",
         emailData
       );
       setMessage(response.data);
@@ -78,7 +78,7 @@ const ResumeReceived = () => {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://employeemanagement-backend-uubq.onrender.com/api/applied-applicants/${selectedJob}`
+          `http://localhost:5000/api/applied-applicants/${selectedJob}`
         );
         // Add unique IDs to each row
         const formattedData = response.data.applicants.map(
@@ -111,7 +111,7 @@ const ResumeReceived = () => {
   const fetchJobDetails = async (jobId) => {
     try {
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-uubq.onrender.com/api/get_job/${jobId}`
+        `http://localhost:5000/api/get_job/${jobId}`
       );
       setJobDetails(response.data);
     } catch (error) {
@@ -158,7 +158,7 @@ const ResumeReceived = () => {
       try {
         // Use emailDataForConfirmation instead of emailData
         const response = await axiosInstance.post(
-          "https://employeemanagement-backend-uubq.onrender.com/api/send-email",
+          "http://localhost:5000/api/send-email",
           emailDataForConfirmation
         );
         console.log("Email sent successfully:", response.data);
@@ -197,13 +197,13 @@ const ResumeReceived = () => {
       if (selectedAction === "shortlist" || selectedAction === "unshortlist") {
         // Send API request
         await axiosInstance.post(
-          `https://employeemanagement-backend-uubq.onrender.com/api/${selectedAction}/${selectedApplicantId}`,
+          `http://localhost:5000/api/${selectedAction}/${selectedApplicantId}`,
           { jobId: selectedJob }
         );
 
         // Update UI after successful request
         const response = await axiosInstance.get(
-          `https://employeemanagement-backend-uubq.onrender.com/api/applied-applicants/${selectedJob}`
+          `http://localhost:5000/api/applied-applicants/${selectedJob}`
         );
         const formattedData = response.data.applicants.map(
           (applicant, index) => ({

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://employeemanagement-backend-uubq.onrender.com/api", // Adjust the base URL according to your API endpoint
+  baseURL: "http://localhost:5000/api", // Adjust the base URL according to your API endpoint
 });
 
 // Add interceptor to include access token in the request headers

@@ -38,7 +38,7 @@ const LeaveRequest = () => {
     const fetchActiveLeaves = async () => {
       try {
         const response = await axiosInstance.get(
-          "https://employeemanagement-backend-uubq.onrender.com/api/get_leaves"
+          "http://localhost:5000/api/get_leaves"
         );
         const modifiedData = response.data
           .filter((row) => row.status === "active")
@@ -79,7 +79,7 @@ const LeaveRequest = () => {
 
     try {
       const response = await axiosInstance.post(
-        "https://employeemanagement-backend-uubq.onrender.com/api/requests",
+        "http://localhost:5000/api/requests",
         {
           userID: currentUser._id,
           username: currentUser.firstName + " " + currentUser.lastName,

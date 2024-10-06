@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 
 import EyeIcon from "./src assets/eye icon.png";
- 
- 
+
 import { useAuth } from "./utilis/AuthContext"; // Import useAuth hook from AuthContext
 import axios from "axios";
 
@@ -14,12 +13,8 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
 
   const { login } = useAuth(); // Destructure login function from useAuth hook
- 
-
- 
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -31,7 +26,6 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
     setPasswordError("");
   };
 
- 
   const handleLoginType = (type) => {
     setLoginType(type);
     setUsername("");
@@ -55,13 +49,13 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
       try {
         if (loginType === "admin") {
           response = await axios.post(
-            "https://employeemanagement-backend-uubq.onrender.com/api/login_admin",
+            "http://localhost:5000/api/login_admin",
             { email: username, password },
             { withCredentials: true }
           );
         } else if (loginType === "employee") {
           response = await axios.post(
-            "https://employeemanagement-backend-uubq.onrender.com/api/login_employee",
+            "http://localhost:5000/api/login_employee",
             { email: username, password },
             { withCredentials: true }
           );
