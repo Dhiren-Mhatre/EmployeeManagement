@@ -19,7 +19,9 @@ const server = http.createServer(app);
 // Middleware setup
 app.use(CookieParser("/"));
 app.use(cors({
-    origin: 'https://employeemanagement-frontend-ga2r.onrender.com/', // Ensure this matches your frontend's URL
+ 
+    origin: 'https://employeemanagement-frontend-ga2r.onrender.com', // Ensure this matches your frontend's URL
+ 
     credentials: true,  // To include credentials like cookies in the requests
 }));
 app.use(express.json());
