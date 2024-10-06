@@ -53,7 +53,7 @@ const LeaveTypes = () => {
     try {
       console.log("Leave ID:", id); // Log the leave ID
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/get_leave/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/get_leave/${id}`
       );
       const existingLeave = response.data;
       console.log("Fetched leave Data:", existingLeave);
@@ -87,11 +87,11 @@ const LeaveTypes = () => {
     try {
       const response = editedLeave._id
         ? await axiosInstance.put(
-            `https://employeemanagement-backend-rkhb.onrender.com/api/edit_leave/${editedLeave._id}`,
+            `https://employeemanagement-backend-uubq.onrender.com/api/edit_leave/${editedLeave._id}`,
             editedLeave
           )
         : await axiosInstance.post(
-            "https://employeemanagement-backend-rkhb.onrender.com/api/add_leave",
+            "https://employeemanagement-backend-uubq.onrender.com/api/add_leave",
             editedLeave
           );
 
@@ -107,7 +107,7 @@ const LeaveTypes = () => {
   const fetchLeaveData = () => {
     axiosInstance
       .get(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/get_leaves"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_leaves"
       )
       .then((response) => {
         const modifiedData = response.data.map((row) => ({
@@ -127,7 +127,7 @@ const LeaveTypes = () => {
 
       // Send the request to the backend to update the status
       const response = await axiosInstance.put(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/activate_deactivate_leave/${id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/activate_deactivate_leave/${id}`,
         { status: newStatus }
       );
 
@@ -208,7 +208,7 @@ const LeaveTypes = () => {
 
     axiosInstance
       .delete(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/delete_leave/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_leave/${id}`
       )
       .then((response) => {
         console.log("Response from backend:", response.data);

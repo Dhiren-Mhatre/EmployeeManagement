@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 
 import EyeIcon from "./src assets/eye icon.png";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+ 
+ 
 import { useAuth } from "./utilis/AuthContext"; // Import useAuth hook from AuthContext
 import axios from "axios";
 
@@ -14,14 +14,12 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+  
 
-  const { login, currentUser } = useAuth(); // Destructure login function from useAuth hook
-  const navigate = useNavigate();
+  const { login } = useAuth(); // Destructure login function from useAuth hook
+ 
 
-  const handleSignUp = () => {
-    handleSignUpClick();
-  };
+ 
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -33,10 +31,7 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
     setPasswordError("");
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
+ 
   const handleLoginType = (type) => {
     setLoginType(type);
     setUsername("");
@@ -60,13 +55,13 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
       try {
         if (loginType === "admin") {
           response = await axios.post(
-            "https://employeemanagement-backend-rkhb.onrender.com/api/login_admin",
+            "https://employeemanagement-backend-uubq.onrender.com/api/login_admin",
             { email: username, password },
             { withCredentials: true }
           );
         } else if (loginType === "employee") {
           response = await axios.post(
-            "https://employeemanagement-backend-rkhb.onrender.com/api/login_employee",
+            "https://employeemanagement-backend-uubq.onrender.com/api/login_employee",
             { email: username, password },
             { withCredentials: true }
           );

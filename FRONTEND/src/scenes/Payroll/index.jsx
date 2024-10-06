@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import DatePicker from "@mui/lab/DatePicker";
-import DatePicker from "react-datepicker";
+ 
 import "react-datepicker/dist/react-datepicker.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import ConfirmationModal from "../../components/ConfirmationModal";
+ 
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import SearchIcon from "@mui/icons-material/Search";
-import CancelIcon from "@mui/icons-material/Cancel";
-import InputBase from "@mui/material/InputBase";
+ 
 import SendIcon from "@mui/icons-material/Send";
 import DownloadIcon from "@mui/icons-material/Download";
 import SaveIcon from "@mui/icons-material/Save";
@@ -20,13 +18,13 @@ import { Box, useTheme, Tab, TextField, Tabs, Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import * as yup from "yup";
-import { Formik, Field, ErrorMessage, useField } from "formik";
+ 
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+ 
 import {
   Table,
   TableBody,
@@ -36,12 +34,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-
-import Header from "../../components/Header";
-import MenuItem from "@mui/material/MenuItem";
-import axios from "axios";
-
-import upload from "../../utilis/upload.js";
+ 
 
 const initialValues = {
   firstName: "",
@@ -191,7 +184,7 @@ const Payroll = () => {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(
-          "https://employeemanagement-backend-rkhb.onrender.com/api/get_employees"
+          "https://employeemanagement-backend-uubq.onrender.com/api/get_employees"
         );
         setEmployeeData(response.data);
       } catch (error) {
@@ -208,7 +201,7 @@ const Payroll = () => {
     if (newValue === "viewAllEmployees") {
       try {
         const response = await axiosInstance.get(
-          "https://employeemanagement-backend-rkhb.onrender.com/api/get_employees"
+          "https://employeemanagement-backend-uubq.onrender.com/api/get_employees"
         );
         setEmployeeData(response.data);
       } catch (error) {
@@ -245,7 +238,7 @@ const Payroll = () => {
   const fetchAllowances = async () => {
     try {
       const response = await axiosInstance.get(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/get_allowances"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_allowances"
       );
       setAllowances(response.data);
     } catch (error) {
@@ -256,7 +249,7 @@ const Payroll = () => {
   const handleAddAllowance = async () => {
     try {
       await axiosInstance.post(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/add_allowance",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_allowance",
         newAllowanceData
       );
       fetchAllowances();
@@ -286,7 +279,7 @@ const Payroll = () => {
   const handleDialogSave = async () => {
     try {
       await axiosInstance.put(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/edit_allowance/${editedAllowance._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_allowance/${editedAllowance._id}`,
         editedAllowance
       );
       fetchAllowances();
@@ -300,7 +293,7 @@ const Payroll = () => {
   const handleDeleteAllowance = async (id) => {
     try {
       await axiosInstance.delete(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/delete_allowance/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_allowance/${id}`
       );
       fetchAllowances();
     } catch (error) {
@@ -327,7 +320,7 @@ const Payroll = () => {
   const fetchBasicSalaries = async () => {
     try {
       const response = await axiosInstance.get(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/get_basic_salaries"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_basic_salaries"
       );
       setDesignationsSalaries(response.data);
     } catch (error) {
@@ -338,7 +331,7 @@ const Payroll = () => {
   const handleAddBasicSalary = async () => {
     try {
       await axiosInstance.post(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/add_basic_salary",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_basic_salary",
         newDesignationSalaryData
       );
       fetchBasicSalaries();
@@ -368,7 +361,7 @@ const Payroll = () => {
   const handleSaveEditedDesignationSalary = async () => {
     try {
       await axiosInstance.put(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/edit_basic_salary/${editedDesignationSalary._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_basic_salary/${editedDesignationSalary._id}`,
         editedDesignationSalary
       );
       fetchBasicSalaries();
@@ -381,7 +374,7 @@ const Payroll = () => {
   const handleDeleteDesignationSalary = async (id) => {
     try {
       await axiosInstance.delete(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/delete_basic_salary/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_basic_salary/${id}`
       );
       fetchBasicSalaries();
     } catch (error) {
@@ -409,7 +402,7 @@ const Payroll = () => {
   const fetchDeductions = async () => {
     try {
       const response = await axiosInstance.get(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/get_deductions"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_deductions"
       );
       setDeductions(response.data);
     } catch (error) {
@@ -437,7 +430,7 @@ const Payroll = () => {
   const handleAddDeduction = async () => {
     try {
       await axiosInstance.post(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/add_deduction",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_deduction",
         newDeductionData
       );
       fetchDeductions();
@@ -467,7 +460,7 @@ const Payroll = () => {
   const handleSaveEditedDeduction = async () => {
     try {
       await axiosInstance.put(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/edit_deduction/${editedDeduction._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_deduction/${editedDeduction._id}`,
         editedDeduction
       );
       fetchDeductions();
@@ -480,7 +473,7 @@ const Payroll = () => {
   const handleDeleteDeduction = async (id) => {
     try {
       await axiosInstance.delete(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/delete_deduction/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_deduction/${id}`
       );
       fetchDeductions();
     } catch (error) {
@@ -491,7 +484,7 @@ const Payroll = () => {
   const fetchPayslipData = async (id) => {
     try {
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/payslip/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/payslip/${id}`
       );
       if (response.status === 200) {
         setPayslipData(response.data);

@@ -18,7 +18,7 @@ const LeaveHistoryAdmin = () => {
     const fetchLeaveRequests = async () => {
       try {
         const response = await axiosInstance.get(
-          "https://employeemanagement-backend-rkhb.onrender.com/api/requests"
+          "https://employeemanagement-backend-uubq.onrender.com/api/requests"
         );
         setLeaveRequests(
           response.data.filter(

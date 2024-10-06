@@ -26,7 +26,7 @@ const LeaveHistory = () => {
     const fetchLeaveRequests = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://employeemanagement-backend-rkhb.onrender.com/api/requestsbyid/${currentUser._id}`
+          `https://employeemanagement-backend-uubq.onrender.com/api/requestsbyid/${currentUser._id}`
         );
         setLeaveRequests(response.data);
       } catch (error) {
@@ -40,7 +40,7 @@ const LeaveHistory = () => {
   const handleCancelRequest = async () => {
     try {
       const response = await axiosInstance.patch(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/requests/${selectedRequestId}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/requests/${selectedRequestId}`,
         { status: "cancelled" }
       );
       if (response.status === 200) {

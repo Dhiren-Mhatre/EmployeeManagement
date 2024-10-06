@@ -125,7 +125,7 @@ const Team = () => {
   const handleSearch = async () => {
     try {
       const response = await axiosInstance.get(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/search_employee/${searchQuery}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/search_employee/${searchQuery}`
       );
       setSearchResults(response.data);
     } catch (error) {
@@ -148,7 +148,7 @@ const Team = () => {
     // Example using axios to send a delete request to the backend
     axiosInstance
       .delete(
-        `https://employeemanagement-backend-rkhb.onrender.com/api/delete_employee/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_employee/${id}`
       )
       .then((response) => {
         console.log("Employee deleted successfully");
@@ -324,7 +324,7 @@ const Team = () => {
     // console.log(profileCv, profilePic)
     try {
       await axiosInstance.post(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/add_employee",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_employee",
         {
           ...values,
           profilepic: pic,
@@ -389,7 +389,7 @@ const Team = () => {
   const handleTest = async () => {
     try {
       await axiosInstance.post(
-        "https://employeemanagement-backend-rkhb.onrender.com/api/add_employee",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_employee",
         {
           firstName: fname,
           lastName: lname,

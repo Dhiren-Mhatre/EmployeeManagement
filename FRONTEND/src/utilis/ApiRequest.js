@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://employeemanagement-backend-rkhb.onrender.com/api", // Adjust the base URL according to your API endpoint
+  baseURL: "https://employeemanagement-backend-uubq.onrender.com/api", // Adjust the base URL according to your API endpoint
 });
 
 // Add interceptor to include access token in the request headers
