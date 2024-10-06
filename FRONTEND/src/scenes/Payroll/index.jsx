@@ -183,7 +183,7 @@ const Payroll = () => {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(
-          "http://localhost:5000/api/get_employees"
+          "https://employeemanagement-backend-uubq.onrender.com/api/get_employees"
         );
         setEmployeeData(response.data);
       } catch (error) {
@@ -200,7 +200,7 @@ const Payroll = () => {
     if (newValue === "viewAllEmployees") {
       try {
         const response = await axiosInstance.get(
-          "http://localhost:5000/api/get_employees"
+          "https://employeemanagement-backend-uubq.onrender.com/api/get_employees"
         );
         setEmployeeData(response.data);
       } catch (error) {
@@ -237,7 +237,7 @@ const Payroll = () => {
   const fetchAllowances = async () => {
     try {
       const response = await axiosInstance.get(
-        "http://localhost:5000/api/get_allowances"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_allowances"
       );
       setAllowances(response.data);
     } catch (error) {
@@ -248,7 +248,7 @@ const Payroll = () => {
   const handleAddAllowance = async () => {
     try {
       await axiosInstance.post(
-        "http://localhost:5000/api/add_allowance",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_allowance",
         newAllowanceData
       );
       fetchAllowances();
@@ -278,7 +278,7 @@ const Payroll = () => {
   const handleDialogSave = async () => {
     try {
       await axiosInstance.put(
-        `http://localhost:5000/api/edit_allowance/${editedAllowance._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_allowance/${editedAllowance._id}`,
         editedAllowance
       );
       fetchAllowances();
@@ -292,7 +292,7 @@ const Payroll = () => {
   const handleDeleteAllowance = async (id) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:5000/api/delete_allowance/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_allowance/${id}`
       );
       fetchAllowances();
     } catch (error) {
@@ -319,7 +319,7 @@ const Payroll = () => {
   const fetchBasicSalaries = async () => {
     try {
       const response = await axiosInstance.get(
-        "http://localhost:5000/api/get_basic_salaries"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_basic_salaries"
       );
       setDesignationsSalaries(response.data);
     } catch (error) {
@@ -330,7 +330,7 @@ const Payroll = () => {
   const handleAddBasicSalary = async () => {
     try {
       await axiosInstance.post(
-        "http://localhost:5000/api/add_basic_salary",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_basic_salary",
         newDesignationSalaryData
       );
       fetchBasicSalaries();
@@ -360,7 +360,7 @@ const Payroll = () => {
   const handleSaveEditedDesignationSalary = async () => {
     try {
       await axiosInstance.put(
-        `http://localhost:5000/api/edit_basic_salary/${editedDesignationSalary._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_basic_salary/${editedDesignationSalary._id}`,
         editedDesignationSalary
       );
       fetchBasicSalaries();
@@ -373,7 +373,7 @@ const Payroll = () => {
   const handleDeleteDesignationSalary = async (id) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:5000/api/delete_basic_salary/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_basic_salary/${id}`
       );
       fetchBasicSalaries();
     } catch (error) {
@@ -401,7 +401,7 @@ const Payroll = () => {
   const fetchDeductions = async () => {
     try {
       const response = await axiosInstance.get(
-        "http://localhost:5000/api/get_deductions"
+        "https://employeemanagement-backend-uubq.onrender.com/api/get_deductions"
       );
       setDeductions(response.data);
     } catch (error) {
@@ -429,7 +429,7 @@ const Payroll = () => {
   const handleAddDeduction = async () => {
     try {
       await axiosInstance.post(
-        "http://localhost:5000/api/add_deduction",
+        "https://employeemanagement-backend-uubq.onrender.com/api/add_deduction",
         newDeductionData
       );
       fetchDeductions();
@@ -459,7 +459,7 @@ const Payroll = () => {
   const handleSaveEditedDeduction = async () => {
     try {
       await axiosInstance.put(
-        `http://localhost:5000/api/edit_deduction/${editedDeduction._id}`,
+        `https://employeemanagement-backend-uubq.onrender.com/api/edit_deduction/${editedDeduction._id}`,
         editedDeduction
       );
       fetchDeductions();
@@ -472,7 +472,7 @@ const Payroll = () => {
   const handleDeleteDeduction = async (id) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:5000/api/delete_deduction/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/delete_deduction/${id}`
       );
       fetchDeductions();
     } catch (error) {
@@ -483,7 +483,7 @@ const Payroll = () => {
   const fetchPayslipData = async (id) => {
     try {
       const response = await axiosInstance.get(
-        `http://localhost:5000/api/payslip/${id}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/payslip/${id}`
       );
       if (response.status === 200) {
         setPayslipData(response.data);

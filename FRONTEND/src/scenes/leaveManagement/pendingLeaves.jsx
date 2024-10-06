@@ -25,7 +25,7 @@ const PendingLeaves = () => {
     const fetchLeaveRequests = async () => {
       try {
         const response = await axiosInstance.get(
-          "http://localhost:5000/api/requests"
+          "https://employeemanagement-backend-uubq.onrender.com/api/requests"
         );
         setLeaveRequests(
           response.data.filter((request) => request.status === "pending")
@@ -42,7 +42,7 @@ const PendingLeaves = () => {
   const handleApproveRequest = async () => {
     try {
       const response = await axiosInstance.patch(
-        `http://localhost:5000/api/approve_requests/${selectedRequestId}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/approve_requests/${selectedRequestId}`
       );
       if (response.status === 200) {
         setLeaveRequests(
@@ -66,7 +66,7 @@ const PendingLeaves = () => {
   const handleRejectRequest = async () => {
     try {
       const response = await axiosInstance.patch(
-        `http://localhost:5000/api/reject_requests/${selectedRequestId}`
+        `https://employeemanagement-backend-uubq.onrender.com/api/reject_requests/${selectedRequestId}`
       );
       if (response.status === 200) {
         setLeaveRequests(

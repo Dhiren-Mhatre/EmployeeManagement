@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/NotificationsOutlined";
 
-const socket = io("http://localhost:5000"); // Adjust according to your server setup
+const socket = io("https://employeemanagement-backend-uubq.onrender.com"); // Adjust according to your server setup
 
 const AdminNotifications = () => {
   const [anchorEl, setAnchorEl] = useState(null);

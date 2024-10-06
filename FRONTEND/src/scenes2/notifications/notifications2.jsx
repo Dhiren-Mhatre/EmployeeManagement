@@ -12,7 +12,7 @@ import {
 import NotificationsIcon from "@mui/icons-material/NotificationsOutlined";
 
 // Ensure this matches your Socket.IO server setup
-const socket = io("https://employeemanagement-backend-uubq.onrender.com");
+const socket = io("http://localhost:5000");
 
 const Notifications = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);

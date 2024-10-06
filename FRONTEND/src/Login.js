@@ -49,13 +49,13 @@ const Login = ({ onLoginClick, handleSignUpClick }) => {
       try {
         if (loginType === "admin") {
           response = await axios.post(
-            "http://localhost:5000/api/login_admin",
+            "https://employeemanagement-backend-uubq.onrender.com/api/login_admin",
             { email: username, password },
             { withCredentials: true }
           );
         } else if (loginType === "employee") {
           response = await axios.post(
-            "http://localhost:5000/api/login_employee",
+            "https://employeemanagement-backend-uubq.onrender.com/api/login_employee",
             { email: username, password },
             { withCredentials: true }
           );
