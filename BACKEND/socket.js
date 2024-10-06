@@ -6,7 +6,7 @@ module.exports = {
     const { Server } = require("socket.io");
     io = new Server(httpServer, {
       cors: {
-        origin: "https://employeemanagement-frontend-ga2r.onrender.com",
+        origin: "*",
         methods: ["GET", "POST"],
         credentials: true,
       },
