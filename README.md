@@ -34,11 +34,21 @@ This repository contains an HRM (Human Resource Management) system designed as a
 - **Internet**: Fast and reliable access.
 
 ## Installation
+### .env
 
+- PORT = 5000
+- MONGOurl = YourMongoURL
+- JWT_KEY = yourSecretKey
+ 
 1. Clone the repository.
-2. Install dependencies using `npm install`.
-3. Set up your MongoDB database.
-4. Start the development server with `npm start`.
+2. cd BACKEND
+3. Install dependencies using `npm install`.
+4. Set up your MongoDB database.
+5. Start the development server with `npm start`.
+6. cd FRONTEND
+7. Install dependencies using `npm install`
+8. Start the development server with `npm start`.
+   
 
 
 
