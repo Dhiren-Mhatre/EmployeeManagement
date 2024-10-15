@@ -39,6 +39,10 @@ This repository contains an HRM (Human Resource Management) system designed as a
 - PORT = 5000
 - MONGOurl = YourMongoURL
 - JWT_KEY = yourSecretKey
+
+###LOGIN credentials
+- email: kp064669@gmail.com
+- password: 12345678
  
 1. Clone the repository.
 2. cd BACKEND
